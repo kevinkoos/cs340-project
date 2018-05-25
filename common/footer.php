@@ -1,0 +1,1 @@
+<p class="credit">CookieCutter &copy 2018, CS340 Group 29</p>
