@@ -6,6 +6,9 @@
     <li class="nav-item"><a href="wishlist.html">Wish List</a></li>
 
     <?php
+        foreach ($content as $page => $location) {
+            echo "<li><a class=\"nav-item\" href='$location?user=".$_SESSION['username']."' ".($page==$currentpage?" class='active'":"").">".$page."</a></li>";
+        }
         if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
             echo "<li><a href=\"\">Sign Out</a></li>";
         }
