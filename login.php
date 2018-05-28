@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
     $currentpage = "Log In";
     include "includes/pages.php";
@@ -7,16 +7,18 @@
 <html>
 <head>
     <title>Log In</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=font1|font2|etc">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="js/login_validator.js"></script>
 </head>
 
 <body>
 <?php
     include 'includes/connectvars.php';
-    include "common/header.php";
-
-    echo "<h2>Login</h2>";
+    include "common/banner.php";
+    include "common/mainmenu.php";
 
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
@@ -29,7 +31,7 @@
         $passw = mysqli_real_escape_string($conn, $_POST['passw']);
 
         // Verify username
-        $query = "SELECT salt, password FROM Users WHERE username='$uname'";
+        $query = "SELECT uSalt, uPassword FROM ProjUsers WHERE uUsername='$uname'";
         $result = mysqli_query($conn, $query)
             or die("Query failed: " . mysql_error());
 
@@ -40,6 +42,8 @@
 
             if (strcmp($mdsp, $row[1]) == 0) {
                 echo "<p class='success'>Login successful!</p>";
+                header("refresh:1;url=index.php;");
+                $_SESSION['username'] = $uname;
             }
             else {
                 echo "<p class='error'>Invalid username and/or password!</p>";
@@ -72,6 +76,8 @@
         <input type="reset" value="Clear Form" />
     </p>
 </form>
+
+<?php include("common/footer.php"); ?>
 
 </body>
 </html>

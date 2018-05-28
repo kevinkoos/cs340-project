@@ -1,24 +1,39 @@
 <!DOCTYPE html>
+<?php
+    $currentpage = "Cart";
+    include "includes/pages.php";
+?>
+
 <html>
-  <head>
-
-    <meta charset="UTF-8">
+<head>
     <title>Cart</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
-    <link rel="stylesheet" href="css/index.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=font1|font2|etc">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+</head>
 
-  </head>
+<body>
+<?php
+    include 'includes/connectvars.php';
+    include "common/banner.php";
+    include "common/mainmenu.php";
 
-  <body>
-    <?php
-      include("common/banner.php");
-      include("common/mainmenu.php");
-    ?>
+    // Establish connection
+    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
+        or die("Could not connect: " . mysql_error());
+
+    // ...
+
+    // Close connection
+    mysqli_close($conn);
+?>
+
     <main>
-      
     </main>
-    <?php include("common/footer.php"); ?>
-  </body>
+
+<?php include("common/footer.php"); ?>
+
+</body>
 </html>

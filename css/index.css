@@ -65,6 +65,11 @@ li a:hover {
     color: lightseagreen;
 }
 
+
+li a.active {
+    background-color: green;
+}
+
 h1 {
     padding: 20px;
     margin-left: 10px;
@@ -76,4 +81,14 @@ main {
     position: absolute;
     background-color: rgb(201, 255, 177);
     top: 70px;
+}
+
+.error {
+    font-weight: bold;
+    color: #E80909;
+}
+
+.success {
+    font-weight: bold;
+    color: #09E80D;
 }

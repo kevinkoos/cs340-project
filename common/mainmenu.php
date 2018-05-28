@@ -1,21 +1,23 @@
 <nav class="nav-bar">
-  <ul class="nav-bar-links">
-    <li class="nav-item"><a href="index.html">Home</a></li>
-    <li class="nav-item"><a href="catalog.html">Catalog</a></li>
-    <li class="nav-item"><a href="cart.html">Cart</a></li>
-    <li class="nav-item"><a href="wishlist.html">Wish List</a></li>
+    <ul class="nav-bar-links">
 
-    <?php
-        foreach ($content as $page => $location) {
-            echo "<li><a class=\"nav-item\" href='$location?user=".$_SESSION['username']."' ".($page==$currentpage?" class='active'":"").">".$page."</a></li>";
+<?php
+    foreach ($content as $page => $location) {
+        if ($location[1] == 0) {
+            echo "<li class=\"nav-item\"><a href=\"".$location[0]."\"".($page==$currentpage ? " class=\"active\"" : "").">".$page."</a></li>";
         }
-        if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
-            echo "<li><a href=\"\">Sign Out</a></li>";
+        else if ($location[1] == 1) {
+            if (!isset($_SESSION["username"]) || $_SESSION["username"] == "") {
+                echo "<li class=\"nav-item\"><a href=\"".$location[0]."\"".($page==$currentpage ? " class=\"active\"" : "").">".$page."</a></li>";
+            }
         }
-        else {
-            echo "<li><a href=\"\">Log In</a></li>";
-            echo "<li><a href=\"\">Sign Up</a></li>";
+        else if ($location[1] == 2) {
+            if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
+                echo "<li class=\"nav-item\"><a href=\"".$location[0]."\"".($page==$currentpage ? " class=\"active\"" : "").">".$page."</a></li>";
+            }
         }
-    ?>
-  </ul>
+    }
+?>
+
+    </ul>
 </nav>

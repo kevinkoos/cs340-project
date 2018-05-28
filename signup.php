@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <?php
     $currentpage = "Sign Up";
     include "includes/pages.php";
@@ -7,16 +7,18 @@
 <html>
 <head>
     <title>Sign Up</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=font1|font2|etc">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="js/signup_validator.js"></script>
 </head>
 
 <body>
 <?php
     include 'includes/connectvars.php';
-    include "common/header.php";
-
-    echo "<h2>Sign Up</h2>";
+    include "common/banner.php";
+    include "common/mainmenu.php";
 
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
@@ -25,21 +27,29 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Escape user inputs for security
-        $uname = mysqli_real_escape_string($conn, $_POST['uname']);
-        $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-        $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $passw = mysqli_real_escape_string($conn, $_POST['passw']);
-        $age   = mysqli_real_escape_string($conn, $_POST['age']);
+        $uname  = mysqli_real_escape_string($conn, $_POST['uname']);
+        $email  = mysqli_real_escape_string($conn, $_POST['email']);
+        $passw  = mysqli_real_escape_string($conn, $_POST['passw']);
+        $street = mysqli_real_escape_string($conn, $_POST['street']);
+        $city   = mysqli_real_escape_string($conn, $_POST['city']);
+        $state  = mysqli_real_escape_string($conn, $_POST['state']);
+        $zip    = mysqli_real_escape_string($conn, $_POST['zip']);
 
         // Verify username
-        $query = "SELECT * FROM Users WHERE username='$uname'";
-        $result = mysqli_query($conn, $query)
+        $query = "SELECT * FROM ProjUsers WHERE uUsername='$uname'";
+        $result1 = mysqli_query($conn, $query)
+            or die("Query failed: " . mysql_error());
+        $query = "SELECT * FROM ProjUsers WHERE uEmail='$email'";
+        $result2 = mysqli_query($conn, $query)
             or die("Query failed: " . mysql_error());
 
-        if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($result1) > 0) {
             echo "<p class='error'>Username already taken! Please choose a different username.</p>";
-        } else {
+        }
+        else if (mysqli_num_rows($result2) > 0) {
+            echo "<p class='error'>Email already taken! Please choose a different email.</p>";
+        }
+        else {
             // Generate salt
             $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             $salt = '';
@@ -49,7 +59,7 @@
             // MD5 password
             $mdsp = MD5($passw . $salt);;
             // Insert query
-            $query = "INSERT INTO Users (username, firstName, lastName, email, password, age, salt) VALUES ('$uname', '$fname', '$lname', '$email', '$mdsp', '$age', '$salt')";
+            $query = "INSERT INTO ProjUsers (uUsername, uEmail, uPassword, uSalt, uCity, uState, uZIP, uStreet) VALUES ('$uname', '$email', '$mdsp', '$salt', '$city', '$state', '$zip', '$street')";
             if (mysqli_query($conn, $query)) {
                 echo "<p class='success'>SignUp successful!</p>";
             } else {
@@ -71,14 +81,6 @@
             <input type="text" class="required" name="uname" id="uname">
         </p>
         <p>
-            <label for="fname">First Name:</label>
-            <input type="text" class="required" name="fname" id="fname">
-        </p>
-        <p>
-            <label for="lname">Last Name:</label>
-            <input type="text" class="required" name="lname" id="lname">
-        </p>
-        <p>
             <label for="email">Email:</label>
             <input type="text" class="required" name="email" id="email">
         </p>
@@ -91,8 +93,20 @@
             <input type="password" class="required" name="confirm_passw" id="confirm_passw">
         </p>
         <p>
-            <label for="age">Age:</label>
-            <input type="number" min=1 max=300 class="optional" name="age" id="age" title="Age should be numeric">
+            <label for="street">Street:</label>
+            <input type="text" class="required" name="street" id="street">
+        </p>
+        <p>
+            <label for="city">City:</label>
+            <input type="text" class="required" name="city" id="city">
+        </p>
+        <p>
+            <label for="state">State:</label>
+            <input type="text" class="required" name="state" id="state">
+        </p>
+        <p>
+            <label for="zip">ZIP:</label>
+            <input type="text" class="required" name="zip" id="zip">
         </p>
     </fieldset>
     <p>
@@ -101,5 +115,7 @@
     </p>
 </form>
 
+<?php include("common/footer.php"); ?>
+    
 </body>
 </html>
