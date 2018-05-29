@@ -1,9 +1,17 @@
-<img style="float:left;" src="images/shrubs.gif" alt="Logo" />
+<div>
+<table>
+<tr>
+<td><img src="images/shrubs.jpg" alt="Logo" style="display: inline-block; width:64px; height:64px;"></td>
+<td>
 <?php
-if (isset($_SESSION["username"]) && $_SESSION["username"] != "") {
-  echo "<h3 class=\"title\">Welcome, " . $_SESSION["username"] . "!</h3>";
-}
-else {
-  echo "<h3 class=\"title\">Welcome!</h3>";
-}
+    if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
+        echo "<h1>Welcome, " . $_SESSION['username'] . "!</h1>";
+    }
+    else {
+        echo "<h1>Welcome!</h1>";
+    }
 ?>
+</td>
+</tr>
+</table>
+</div>

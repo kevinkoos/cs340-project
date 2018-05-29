@@ -1,9 +1,15 @@
-<!DOCTYPE html>
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     $currentpage = "Log In";
     include "includes/pages.php";
 ?>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
     <title>Log In</title>
@@ -41,9 +47,8 @@
             $mdsp = MD5($passw . $row[0]);
 
             if (strcmp($mdsp, $row[1]) == 0) {
-                echo "<p class='success'>Login successful!</p>";
-                header("refresh:1;url=index.php;");
                 $_SESSION['username'] = $uname;
+                echo "<p class='success'>Login successful!</p>";
             }
             else {
                 echo "<p class='error'>Invalid username and/or password!</p>";

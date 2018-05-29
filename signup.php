@@ -1,9 +1,15 @@
-<!DOCTYPE html>
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
     $currentpage = "Sign Up";
     include "includes/pages.php";
 ?>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
     <title>Sign Up</title>
@@ -61,13 +67,14 @@
             // Insert query
             $query = "INSERT INTO ProjUsers (uUsername, uEmail, uPassword, uSalt, uCity, uState, uZIP, uStreet) VALUES ('$uname', '$email', '$mdsp', '$salt', '$city', '$state', '$zip', '$street')";
             if (mysqli_query($conn, $query)) {
-                echo "<p class='success'>SignUp successful!</p>";
+                echo "<p class='success'>SignUp successful!</p>";   
             } else {
                 echo "<p class='error'>ERROR: Failed to execute $query. " . mysqli_error($conn) . "</p>";
             }
         }
         // Free result
-        mysqli_free_result($result);
+        mysqli_free_result($result1);
+        mysqli_free_result($result2);
     }
     // Close connection
     mysqli_close($conn);
@@ -106,7 +113,7 @@
         </p>
         <p>
             <label for="zip">ZIP:</label>
-            <input type="text" class="required" name="zip" id="zip">
+            <input type="number" min=1 max=99999 class="optional" name="zip" id="zip" title="ZIP should be numeric">
         </p>
     </fieldset>
     <p>
@@ -116,6 +123,6 @@
 </form>
 
 <?php include("common/footer.php"); ?>
-    
+
 </body>
 </html>

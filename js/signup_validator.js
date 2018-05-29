@@ -1,10 +1,10 @@
 function validateForm() {
     try {
     return (validateUserName() &&
-            validateFirstName() &&
-            validateLastName() &&
             validateEmail() &&
-            validatePasswords());
+            validatePasswords() &&
+            validateState() &&
+            validateCity());
     } catch(err) {
         alert(err);
     }
@@ -50,6 +50,36 @@ function validateLastName() {
     var r = v.search(/^\w+$/);
     if (r != 0) {
         alert("Invalid last name!");
+        return false;
+    }
+    return true;
+}
+
+function validateState() {
+    var e = document.getElementById('state');
+    var v = e.value;
+    if (v.length < 3) {
+        alert("State must be at least three characters long!");
+        return false;
+    }
+    var r = v.search(/^\w+$/);
+    if (r != 0) {
+        alert("Invalid state!");
+        return false;
+    }
+    return true;
+}
+
+function validateCity() {
+    var e = document.getElementById('city');
+    var v = e.value;
+    if (v.length < 3) {
+        alert("City must be at least three characters long!");
+        return false;
+    }
+    var r = v.search(/^\w+$/);
+    if (r != 0) {
+        alert("Invalid city!");
         return false;
     }
     return true;
@@ -112,14 +142,14 @@ function isBlank(inputField) {
 }
 
 function makeRed(div) {
-    div.style.backgroundColor = "#AA0000";
+    div.style.backgroundColor = "#D49090";
     //div.parentNode.style.backgroundColor = "#AA0000";
-    div.parentNode.style.color = "#FFFFFF";
+    div.style.color = "#000000";
 }
 
 function makeClean(div) {
-    div.parentNode.style.backgroundColor = "#FFFFFF";
-    div.parentNode.style.color = "#000000";
+    div.style.backgroundColor = "#FFFFFF";
+    div.style.color = "#000000";
 }
 
 window.onload = function() {
@@ -128,11 +158,12 @@ window.onload = function() {
     var requiredInputs = document.querySelectorAll(".required");
     for (var i = 0; i < requiredInputs.length; i++) {
         requiredInputs[i].onfocus = function() {
-            this.style.backgroundColor = "#EEEE00";
+            this.style.backgroundColor = "#F9FF8A";
         }
     }
 
     myForm.onsubmit = function(e) {
+        try {
         var requiredInputs = document.querySelectorAll(".required");
         for (var i=0; i < requiredInputs.length; i++) {
             if (isBlank(requiredInputs[i])) {
@@ -146,6 +177,10 @@ window.onload = function() {
         if (!validateForm()) {
             e.preventDefault();
         }
+        } catch(err){
+            alert(err);
+        }
+
     }
 }
 

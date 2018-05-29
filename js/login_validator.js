@@ -56,14 +56,14 @@ function isBlank(inputField) {
 }
 
 function makeRed(div) {
-    div.style.backgroundColor = "#AA0000";
+    div.style.backgroundColor = "#D49090";
     //div.parentNode.style.backgroundColor = "#AA0000";
-    div.parentNode.style.color = "#FFFFFF";
+    div.style.color = "#000000";
 }
 
 function makeClean(div) {
-    div.parentNode.style.backgroundColor = "#FFFFFF";
-    div.parentNode.style.color = "#000000";
+    div.style.backgroundColor = "#FFFFFF";
+    div.style.color = "#000000";
 }
 
 window.onload = function() {
@@ -72,7 +72,7 @@ window.onload = function() {
     var requiredInputs = document.querySelectorAll(".required");
     for (var i = 0; i < requiredInputs.length; i++) {
         requiredInputs[i].onfocus = function() {
-            this.style.backgroundColor = "#EEEE00";
+            this.style.backgroundColor = "#F9FF8A";
         }
     }
 

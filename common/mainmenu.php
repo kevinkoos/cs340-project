@@ -1,6 +1,6 @@
+<div>
 <nav class="nav-bar">
     <ul class="nav-bar-links">
-
 <?php
     foreach ($content as $page => $location) {
         if ($location[1] == 0) {
@@ -21,3 +21,4 @@
 
     </ul>
 </nav>
+</div>
