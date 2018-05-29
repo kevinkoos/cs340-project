@@ -1,0 +1,137 @@
+/* overlapping margins are way too annoying */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    /*-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-high-contrast-adjust: none;*/
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a9db80+0,96c56f+100;Green+3D+%232 */
+    background: #a9db80; /* Old browsers */
+    background: -moz-linear-gradient(top, #a9db80 0%, #96c56f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #a9db80 0%,#96c56f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #a9db80 0%,#96c56f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 ); /* IE6-9 */
+}
+
+h1 {
+    font-size: 24px;
+}
+
+p {
+    display: block;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.credit {
+    color: #333;
+}
+
+.error {
+    color: #E80909;
+}
+
+.success {
+    color: #333;
+}
+
+nav {
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 70px;
+    background-color: lightgreen;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 790px;
+    padding: 0;
+}
+
+ul li {
+    display: block;
+    text-align: center;
+    float: left;
+    font-size: 20px;
+    line-height: 68px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: lightskyblue;
+}
+
+li a {
+    padding: 25px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+li a:hover {
+    background-color: rgb(162, 255, 137);
+    color: lightseagreen;
+}
+
+li a.active {
+    background-color: #B1D6E3;
+    color: lightseagreen;
+}
+
+form {
+    display: block;
+    padding: 12px;
+}
+
+fieldset {
+    border-radius: 6px;
+    border: 1px solid #cdcdcd;
+    padding: 12px;
+}
+
+fieldset legend {
+    margin-left: 24px;
+    padding: 3px;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+    box-shadow: none;
+    background: #fff;
+    font-size: 16px;
+    color: #333;
+}
+
+fieldset label {
+    float: left;
+    clear: left;
+    padding-top: 2px;
+    width: 120px;
+    text-align: right;
+    font-size: 90%;
+    color: #333;
+}
+
