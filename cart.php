@@ -7,7 +7,7 @@
         session_start();
     }
     $currentpage = "Cart";
-    include "includes/pages.php";
+    include 'includes/pages.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -23,8 +23,8 @@
 <body>
 <?php
     include 'includes/connectvars.php';
-    include "common/banner.php";
-    include "common/mainmenu.php";
+    include 'common/banner.php';
+    include 'common/mainmenu.php';
 
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)

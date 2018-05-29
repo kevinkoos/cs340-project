@@ -6,13 +6,13 @@
     if (!isset($_SESSION)) {
         session_start();
     }
-    $currentpage = "Home";
+    $currentpage = "Catalog";
     include 'includes/pages.php';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-    <title>Home</title>
+    <title>Product</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=font1|font2|etc">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
