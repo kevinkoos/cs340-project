@@ -77,3 +77,48 @@ main {
     background-color: rgb(201, 255, 177);
     top: 70px;
 }
+
+.MainBody {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    font-size: 28px;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+.RightPic{
+    max-width: 100%;
+    max-height: 100%;
+}
+.RightSide {
+    padding-right: 5px;
+    padding-left: 10px;
+}
+.LeftSide {
+    padding-right: 5px;
+    padding-right: 10px;
+}
+.LeftPic{
+    padding-top: 10px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.mainContent{
+    margin:100px;
+    padding-bottom: 20px;
+    
+}
+#searchBar{
+    width:800px;
+    height: 40px;
+}
+.searchButton{
+    margin-left: auto;
+    margin-right: auto;
+}
