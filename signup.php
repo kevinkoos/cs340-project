@@ -26,6 +26,13 @@
     include 'common/banner.php';
     include 'common/mainmenu.php';
 
+    function filter_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
         or die("Could not connect: " . mysql_error());
@@ -33,13 +40,13 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Escape user inputs for security
-        $uname  = mysqli_real_escape_string($conn, $_POST['uname']);
-        $email  = mysqli_real_escape_string($conn, $_POST['email']);
-        $passw  = mysqli_real_escape_string($conn, $_POST['passw']);
-        $street = mysqli_real_escape_string($conn, $_POST['street']);
-        $city   = mysqli_real_escape_string($conn, $_POST['city']);
-        $state  = mysqli_real_escape_string($conn, $_POST['state']);
-        $zip    = mysqli_real_escape_string($conn, $_POST['zip']);
+        $uname  = filter_input(mysqli_real_escape_string($conn, $_POST['uname']));
+        $email  = filter_input(mysqli_real_escape_string($conn, $_POST['email']));
+        $passw  = filter_input(mysqli_real_escape_string($conn, $_POST['passw']));
+        $street = filter_input(mysqli_real_escape_string($conn, $_POST['street']));
+        $city   = filter_input(mysqli_real_escape_string($conn, $_POST['city']));
+        $state  = filter_input(mysqli_real_escape_string($conn, $_POST['state']));
+        $zip    = filter_input(mysqli_real_escape_string($conn, $_POST['zip']));
 
         // Verify username
         $query = "SELECT * FROM ProjUsers WHERE uUsername='$uname'";
@@ -67,7 +74,7 @@
             // Insert query
             $query = "INSERT INTO ProjUsers (uUsername, uEmail, uPassword, uSalt, uCity, uState, uZIP, uStreet) VALUES ('$uname', '$email', '$mdsp', '$salt', '$city', '$state', '$zip', '$street')";
             if (mysqli_query($conn, $query)) {
-                echo "<p class='success'>SignUp successful!</p>";   
+                echo "<p class='success'>SignUp successful!</p>";
             } else {
                 echo "<p class='error'>ERROR: Failed to execute $query. " . mysqli_error($conn) . "</p>";
             }

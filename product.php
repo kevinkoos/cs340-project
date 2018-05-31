@@ -36,9 +36,6 @@
     mysqli_close($conn);
 ?>
 
-    <main>
-    </main>
-
 <?php include("common/footer.php"); ?>
 
 </body>

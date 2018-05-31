@@ -8,13 +8,20 @@
     }
     include 'connectvars.php';
 
+    function filter_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
         or die("Could not connect: " . mysql_error());
 
     // Escape user inputs for security
-    $uname = mysqli_real_escape_string($conn, $_POST['uname']);
-    $passw = mysqli_real_escape_string($conn, $_POST['passw']);
+    $uname = filter_input(mysqli_real_escape_string($conn, $_POST['uname']));
+    $passw = filter_input(mysqli_real_escape_string($conn, $_POST['passw']));
     $auth = false;
 
     // Verify username
