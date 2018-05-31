@@ -8,7 +8,7 @@
     }
     include 'connectvars.php';
 
-    function filter_input($data) {
+    function clean_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -20,8 +20,8 @@
         or die("Could not connect: " . mysql_error());
 
     // Escape user inputs for security
-    $uname = filter_input(mysqli_real_escape_string($conn, $_POST['uname']));
-    $passw = filter_input(mysqli_real_escape_string($conn, $_POST['passw']));
+    $uname = clean_input(mysqli_real_escape_string($conn, $_POST['uname']));
+    $passw = clean_input(mysqli_real_escape_string($conn, $_POST['passw']));
     $auth = false;
 
     // Verify username

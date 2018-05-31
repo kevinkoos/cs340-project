@@ -26,7 +26,7 @@
     include 'common/banner.php';
     include 'common/mainmenu.php';
 
-    function filter_input($data) {
+    function clean_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -40,13 +40,13 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Escape user inputs for security
-        $uname  = filter_input(mysqli_real_escape_string($conn, $_POST['uname']));
-        $email  = filter_input(mysqli_real_escape_string($conn, $_POST['email']));
-        $passw  = filter_input(mysqli_real_escape_string($conn, $_POST['passw']));
-        $street = filter_input(mysqli_real_escape_string($conn, $_POST['street']));
-        $city   = filter_input(mysqli_real_escape_string($conn, $_POST['city']));
-        $state  = filter_input(mysqli_real_escape_string($conn, $_POST['state']));
-        $zip    = filter_input(mysqli_real_escape_string($conn, $_POST['zip']));
+        $uname  = clean_input(mysqli_real_escape_string($conn, $_POST['uname']));
+        $email  = clean_input(mysqli_real_escape_string($conn, $_POST['email']));
+        $passw  = clean_input(mysqli_real_escape_string($conn, $_POST['passw']));
+        $street = clean_input(mysqli_real_escape_string($conn, $_POST['street']));
+        $city   = clean_input(mysqli_real_escape_string($conn, $_POST['city']));
+        $state  = clean_input(mysqli_real_escape_string($conn, $_POST['state']));
+        $zip    = clean_input(mysqli_real_escape_string($conn, $_POST['zip']));
 
         // Verify username
         $query = "SELECT * FROM ProjUsers WHERE uUsername='$uname'";
