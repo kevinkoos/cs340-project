@@ -32,28 +32,28 @@
 
     if (isset($_GET["sel_product"])) {
         $pid = (int)$_GET["sel_product"];
-        $query = "SELECT pName, pPrice, pQuantity, pDesc, pPhoto FROM ProjProducts WHERE pPID=$pid;";
+        $query = "SELECT pName, pPrice, pQuantity, pDesc, pPhoto FROM ProjProducts WHERE pID=$pid;";
         $result = mysqli_query($conn, $query)
             or die("Query failed: " . mysql_error());
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_row($result);
             $cmd = "";
+            $cmd .= "<form><fieldset>";
             $cmd .= "<h2>".$row[0]."</h2>";
-            $cmd .= "<fieldset>"
-            $cmd .= "<table><tr><td>";
-            $cmd .= "<img src=\"".$row[4]."\" alt=\"".$row[0]."\" style=\"display: inline-block; width:360px;\"></img>";
+            $cmd .= "<table><tr style=\"vertical-align: top;\"><td>";
+            $cmd .= "<img src=\"".$row[4]."\" alt=\"".$row[0]."\" style=\"display: inline-block; width:400px; padding-right: 10px;\"></img>";
             $cmd .= "</td><td>";
-            $cmd .= "<h3>Price</h3><p class=\"desc1\">".$row[1]."</p>";
+            $cmd .= "<h3>Price</h3><p class=\"desc1 info\">$".$row[1]."</p>";
             $cmd .= "<h3>Availability</h3>";
             if ($row[2] > 0) {
-                $cmd .= "<p class=\"desc2\">".$row[2]." in stock</p>";
+                $cmd .= "<p class=\"desc2 info\">".$row[2]." in stock</p>";
             }
             else {
-                $cmd .= "<p class=\"desc3\">None in stock</p>";
+                $cmd .= "<p class=\"desc3 info\">None in stock</p>";
             }
-            $cmd .= "<h3>Description</h3><p class=\"desc4\">".$row[3]."</p>";
+            $cmd .= "<h3>Description</h3><p class=\"desc4 info\">".$row[3]."</p>";
             $cmd .= "</td></tr></table>";
-            $cmd .= "</fieldset>";
+            $cmd .= "</fieldset></form>";
             echo $cmd;
         }
         // Free result

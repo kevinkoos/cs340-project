@@ -1,4 +1,3 @@
-/* overlapping margins are way too annoying */
 * {
     padding: 0;
     margin: 0;
@@ -10,9 +9,9 @@
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 body {
@@ -23,12 +22,12 @@ body {
     -ms-user-select: none;
     user-select: none;
     -ms-high-contrast-adjust: none;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a9db80+0,96c56f+100;Green+3D+%232 */
-    background: #a9db80; /* Old browsers */
-    background: -moz-linear-gradient(top, #a9db80 0%, #96c56f 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #a9db80 0%,#96c56f 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #a9db80 0%,#96c56f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=0 ); /* IE6-9 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cdeb8b+0,cdeb8b+100;Green+Flat+%235 */
+    background: #cdeb8b; /* Old browsers */
+    background: -moz-linear-gradient(top, #cdeb8b 0%, #cdeb8b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #cdeb8b 0%,#cdeb8b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #cdeb8b 0%,#cdeb8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8b', endColorstr='#cdeb8b',GradientType=0 ); /* IE6-9 */
 }
 
 h1 {
@@ -48,8 +47,12 @@ h2 {
 h3 {
     color: #001366;
     display: block;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 16px;
+}
+
+.info {
+    padding: 16px;
 }
 
 p {
