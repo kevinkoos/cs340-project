@@ -88,51 +88,53 @@
     mysqli_close($conn);
 ?>
 
+<main>
 <form method="post" id="signup">
     <fieldset>
         <legend>Register</legend>
         <table>
             <colgroup>
-                <col style="width:170px;">
+                <col style="width:150px;">
                 <col style="width:auto;">
             </colgroup>
             <tr>
-                <td><label for="uname">Username</label></td>
+                <td class="hlabel"><label for="uname">Username</label></td>
                 <td><input type="text" class="required" name="uname" id="uname"></td>
             </tr>
             <tr>
-                <td><label for="email">Email</label></td>
+                <td class="hlabel"><label for="email">Email</label></td>
                 <td><input type="text" class="required" name="email" id="email"></td>
             </tr>
             <tr>
-                <td><label for="passw">Password</label></td>
+                <td class="hlabel"><label for="passw">Password</label></td>
                 <td><input type="password" class="required" name="passw" id="passw"></td>
             </tr>
             <tr>
-                <td><label for="confirm_passw">Confirm Password</label></td>
+                <td class="hlabel"><label for="confirm_passw">Confirm Password</label></td>
                 <td><input type="password" class="required" name="confirm_passw" id="confirm_passw"></td>
             </tr>
             <tr>
-                <td><label for="street">Street</label></td>
+                <td class="hlabel"><label for="street">Street</label></td>
                 <td><input type="text" class="required" name="street" id="street"></td>
             </tr>
             <tr>
-                <td><label for="city">City</label></td>
+                <td class="hlabel"><label for="city">City</label></td>
                 <td><input type="text" class="required" name="city" id="city"></td>
             </tr>
             <tr>
-                <td><label for="state">State</label></td>
+                <td class="hlabel"><label for="state">State</label></td>
                 <td><input type="text" class="required" name="state" id="state"></td>
             </tr>
             <tr>
-                <td><label for="zip">ZIP</label></td>
+                <td class="hlabel"><label for="zip">ZIP</label></td>
                 <td><input type="number" min=1 max=99999 class="optional" name="zip" id="zip" title="ZIP should be numeric"></td>
             </tr>
         </table>
-        <input class="button" type="submit" value="Sign Up" />
-        <input class="button" type="reset" value="Clear Form" />
+        <input class="button button_blue" type="submit" value="Sign Up" />
+        <input class="button button_blue" type="reset" value="Clear Form" />
     </fieldset>
 </form>
+</main>
 
 <?php include("common/footer.php"); ?>
 
