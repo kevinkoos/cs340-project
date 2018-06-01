@@ -38,12 +38,15 @@
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_row($result);
             $cmd = "";
-            $cmd .= "<form><fieldset>";
+            $cmd .= "<main><fieldset>";
+            // Display product title
             $cmd .= "<h2>".$row[0]."</h2>";
             $cmd .= "<table><tr style=\"vertical-align: top;\"><td>";
-            $cmd .= "<img src=\"".$row[4]."\" alt=\"".$row[0]."\" style=\"display: inline-block; width:400px; padding-right: 10px;\"></img>";
+            // Display product image
+            $cmd .= "<img src=\"".$row[4]."\" alt=\"".$row[0]."\" style=\"display: block; width:500px; padding-right: 10px;\"></img>";
             $cmd .= "</td><td>";
-            $cmd .= "<h3>Price</h3><p class=\"desc1 info\">$".$row[1]."</p>";
+            // Display product specs
+            $cmd .= "<h3>Price</h3><p class=\"desc2 info\">$".$row[1]."</p>";
             $cmd .= "<h3>Availability</h3>";
             if ($row[2] > 0) {
                 $cmd .= "<p class=\"desc2 info\">".$row[2]." in stock</p>";
@@ -52,8 +55,46 @@
                 $cmd .= "<p class=\"desc3 info\">None in stock</p>";
             }
             $cmd .= "<h3>Description</h3><p class=\"desc4 info\">".$row[3]."</p>";
+            // Add the Send to Cart button
+            $cmd .= "<h3>Purchase</h3>";
+            $cmd .= "<div class=\"info\">";
+            $cmd .= "<form method=\"post\" id=\"login\" action=\"includes/send_to_cart.php?prod_id=".$pid."\">";
+            if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
+                $cmd .= "<div>";
+                $cmd .= "<label for=\"quantity\">Quantity:</label>";
+                $cmd .= "<input type=\"number\" value=\"1\" min=1 max=99999 class=\"optional\" name=\"quantity\" id=\"quantity\" title=\"Quantity must be a number\">";
+                $cmd .= "</div>";
+                $cmd .= "<input class=\"button button_green\" type=\"submit\" value=\"Send to Cart\" />";
+            }
+            else {
+                $cmd .= "<div>";
+                $cmd .= "<label for=\"quantity\">Quantity:</label>";
+                $cmd .= "<input disabled type=\"number\" value=\"1\" min=1 max=99999 class=\"optional\" name=\"quantity\" id=\"quantity\" title=\"Quantity must be a number\">";
+                $cmd .= "</div>";
+                $cmd .= "<input disabled class=\"button button_green disabled\" type=\"submit\" value=\"Send to Cart\" />";
+                $cmd .= "<p class=\"desc1\">Login to purchase!</p>";
+            }
+            $cmd .= "</form>";
+            $cmd .= "</div>";
+            // Add an option to comment
+            $cmd .= "<h3>Review</h3>";
+            $cmd .= "<div class=\"info\" style=\"width:500px;\">";
+            $cmd .= "<form method=\"post\" id=\"login\" action=\"includes/add_review.php?prod_id=".$pid."\">";
+            if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
+                $cmd .= "<textarea name=\"review\" id=\"review\" class=\"review_box\" wrap=\"hard\" rows=\"1\" cols=\"1\"></textarea>";
+                $cmd .= "<input class=\"button button_red\" type=\"submit\" value=\"Review\" />";
+            }
+            else {
+                $cmd .= "<p class=\"desc1\">Login to post a review!</p>";
+            }
+            $cmd .= "</form>";
+            $cmd .= "</div>";
+            // Display all product reviews
+            $cmd .= "<h3>Comments</h3>";
+            $cmd .= "<div class=\"info\">";
+            $cmd .= "</div>";
             $cmd .= "</td></tr></table>";
-            $cmd .= "</fieldset></form>";
+            $cmd .= "</fieldset></main>";
             echo $cmd;
         }
         // Free result

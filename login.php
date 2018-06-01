@@ -28,6 +28,7 @@
     include 'common/mainmenu.php';
 ?>
 
+<main>
 <form method="post" id="login" action="includes/authorize.php">
     <fieldset>
         <legend>Login</legend>
@@ -38,15 +39,15 @@
         ?>
         <table>
             <colgroup>
-                <col style="width:170px;">
+                <col style="width:150px;">
                 <col style="width:auto;">
             </colgroup>
             <tr>
-                <td><label for="uname">Username</label></td>
+                <td class="hlabel"><label for="uname">Username</label></td>
                 <td><input type="text" class="required" name="uname" id="uname"></td>
             </tr>
             <tr>
-                <td><label for="passw">Password</label></td>
+                <td class="hlabel"><label for="passw">Password</label></td>
                 <td><input type="password" class="required" name="passw" id="passw"></td>
             </tr>
         </table>
@@ -54,6 +55,7 @@
         <input class="button" type="reset" value="Clear Form" />
     </fieldset>
 </form>
+</main>
 
 <?php include("common/footer.php"); ?>
 
