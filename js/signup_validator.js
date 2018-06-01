@@ -142,8 +142,7 @@ function isBlank(inputField) {
 }
 
 function makeRed(div) {
-    div.style.backgroundColor = "#D49090";
-    //div.parentNode.style.backgroundColor = "#AA0000";
+    div.style.backgroundColor = "#FF8969";
     div.style.color = "#000000";
 }
 
