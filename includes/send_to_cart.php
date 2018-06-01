@@ -25,16 +25,36 @@
         $prod_id = (int)clean_input($_GET['prod_id']);
         $quantity = (int)clean_input(mysqli_real_escape_string($conn, $_POST['quantity']));
 
-        $query = "DELETE FROM ProjCart WHERE pID = $prod_id AND uUsername = \"$user\";";
-        mysqli_query($conn, $query) or die("Query failed1: " . mysql_error());
-        
-        $query = "INSERT INTO ProjCart (pID, uUsername, cCount) VALUES ($prod_id, \"$user\", $quantity);";
-        mysqli_query($conn, $query) or die("Query failed2: " . mysql_error());
+        if (isset($_POST['send_to_cart'])) {
+            $query = "DELETE FROM ProjCart WHERE pID = $prod_id AND uUsername = \"$user\";";
+            mysqli_query($conn, $query) or die("Query failed1: " . mysql_error());
+
+            $query = "INSERT INTO ProjCart (pID, uUsername, cCount) VALUES ($prod_id, \"$user\", $quantity);";
+            mysqli_query($conn, $query) or die("Query failed2: " . mysql_error());
+
+            $carted = true;
+        }
+        else {
+            $query = "DELETE FROM ProjWishlist WHERE pID = $prod_id AND uUsername = \"$user\";";
+            mysqli_query($conn, $query) or die("Query failed3: " . mysql_error());
+
+            $query = "INSERT INTO ProjWishlist (pID, uUsername) VALUES ($prod_id, \"$user\");";
+            mysqli_query($conn, $query) or die("Query failed4: " . mysql_error());
+
+            $carted = false;
+        }
     }
 
     // Close connection
     mysqli_close($conn);
 
-    header("Location: ../cart.php");
+    if (isset($carted)) {
+        if (isset($carted) && $carted == true) {
+            header("Location: ../cart.php");
+        }
+        else {
+            header("Location: ../wishlist.php");
+        }
+    }
     exit();
 ?>

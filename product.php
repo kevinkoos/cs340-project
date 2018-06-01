@@ -64,7 +64,10 @@
                 $cmd .= "<label for=\"quantity\">Quantity:</label>";
                 $cmd .= "<input type=\"number\" value=\"1\" min=1 max=99999 class=\"optional\" name=\"quantity\" id=\"quantity\" title=\"Quantity must be a number\">";
                 $cmd .= "</div>";
-                $cmd .= "<input class=\"button button_green\" type=\"submit\" value=\"Send to Cart\" />";
+                $cmd .= "<div>";
+                $cmd .= "<input class=\"button button_green\" style=\"display: inline-block;\" type=\"submit\" name=\"send_to_cart\" value=\"Send to Cart\" />";
+                $cmd .= "<input class=\"button button_blue\" style=\"display: inline-block;\" type=\"submit\" name=\"add_to_wishlist\" value=\"Add to Wishlist\" />";
+                $cmd .= "</div>";
             }
             else {
                 $cmd .= "<div>";
