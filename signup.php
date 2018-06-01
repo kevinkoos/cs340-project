@@ -88,6 +88,7 @@
     mysqli_close($conn);
 ?>
 
+<main>
 <form method="post" id="signup">
     <fieldset>
         <legend>Register</legend>
@@ -135,6 +136,7 @@
 </form>
 
 <?php include("common/footer.php"); ?>
+</main>
 
 </body>
 </html>

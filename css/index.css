@@ -240,3 +240,10 @@ table label {
 tr {
     padding-bottom: 12px;
 }
+
+main {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}

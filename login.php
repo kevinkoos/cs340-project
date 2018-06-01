@@ -28,6 +28,7 @@
     include 'common/mainmenu.php';
 ?>
 
+<main>
 <form method="post" id="login" action="includes/authorize.php">
     <fieldset>
         <legend>Login</legend>
@@ -54,8 +55,8 @@
         <input class="button" type="reset" value="Clear Form" />
     </fieldset>
 </form>
-
 <?php include("common/footer.php"); ?>
+</main>
 
 </body>
 </html>

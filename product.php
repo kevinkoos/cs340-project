@@ -63,8 +63,10 @@
     // Close connection
     mysqli_close($conn);
 ?>
+    <main>
 
-<?php include("common/footer.php"); ?>
+    <?php include("common/footer.php"); ?>
+    </main>
 
 </body>
 </html>

@@ -1,1 +1,1 @@
-<div style="text-align:right; padding: 0.5em 1em 0 0;"><p class="credit">Shrubs &copy 2018, CS340 Group 29</p></div>
+<div style="padding: 0.5em 1em 0 0; bottom: 0px; right: 0px; position: absolute"><p class="credit">Shrubs &copy 2018, CS340 Group 29</p></div>

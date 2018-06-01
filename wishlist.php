@@ -64,9 +64,10 @@
             echo "</form>";
         }
     ?>
+    
+    <?php include("common/footer.php"); ?>
     </main>
 
-<?php include("common/footer.php"); ?>
 
 </body>
 </html>
