@@ -32,12 +32,54 @@
 
     // ...
 
-    // Close connection
-    mysqli_close($conn);
-?>
 
-    <main>
-    </main>
+
+        // executes if logged in
+    if(isset($_SESSION['username'])){
+        $uname = $_SESSION['username'];
+
+        if (isset($_GET['checkout_button'])) {
+            $query = "CALL emptyCart('$uname')";
+            $result = mysqli_query($conn, $query) or die("Query failed: " . mysql_error());
+            echo "<h1 class='empty_cart'>Checkout successful!</h1>";
+        } 
+
+        $query = "SELECT * FROM UserCart WHERE uUsername ='$uname' ";
+        $result = mysqli_query($conn, $query)
+            or die("Query failed: " . mysql_error());
+
+        if (mysqli_num_rows($result) == 0) {
+            echo "<h1 class='empty_cart'>No items in your cart!</h1>";
+        } else {
+            $count = 0;
+            $total = 0;
+            echo "<form method=\"get\" action=\"#\">";
+            while($row = mysqli_fetch_row($result)) {
+                echo "<tr>";
+                echo "<div style='width:100%; height:120px;'>
+                        <td><img src='$row[3]' alt='$row[1]' style='display: inline-block; float:left; width:100px; height:100px; margin-right: 10px;'></td>
+                        <td>$row[1]</td><br>
+                        <td>Individual price: \$$row[2]</td><br>
+                        <td>Quantity: $row[4]</td><br>
+                        <td>Total price: \$$row[5]</td><br>
+                        <td><input type='submit' name='delete_$count' value='Delete item from cart' /></td><br>
+                        </div>";		
+                echo "</tr>";
+                $count ++;
+                $total = $total + $row[5];
+            }
+            
+            echo "Total: \$$total   <input id='checkout_button' type = 'submit' name='checkout_button'  value = 'Checkout' />";
+            echo "</form>";
+        }
+    } else {
+        echo "<h1>Sign up required to purchase our products!</h1>";
+    }
+
+
+    // Close connection
+mysqli_close($conn);
+?>
 
 <?php include("common/footer.php"); ?>
 

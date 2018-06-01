@@ -37,6 +37,33 @@
 ?>
 
     <main>
+    <?php
+        // Verify username
+    
+        $query = "SELECT P.pName, P.pPrice, P.pPhoto
+                  FROM ProjProducts P, ProjWishlist W
+                  WHERE W.uUsername = user AND P.pID = W.pID";
+        $result = mysqli_query($conn, $query)
+            or die("Query failed: " . mysql_error());
+        if (mysqli_num_rows($result) == 0) {
+            echo "<p class='empty_wishlist'>No items in your wishlist!</p>";
+        } else {
+            $array = array_fill(0, mysqli_num_rows($result), 1);
+            
+            echo "<form method=\"post\" action=\"collect_vals.php\">";
+            while($row = mysqli_fetch_row($result)) {
+                echo "<tr>";
+                echo "<td><img src=\"$row[2]\" alt=\"$row[0]\" style=\"display: inline-block; width:64px; height:64px;\"></td>
+                      <td>$row[0]</td>
+                      <td>Individual price: $$row[1]</td>
+                      <td> Amount needed: 
+                      <input type=\"number\" name=\"quantities[]\"></td>";		
+                echo "</tr>\n";
+            }
+            echo "<input type = \"submit\"  value = \"Move wishlist to cart\" />";
+            echo "</form>";
+        }
+    ?>
     </main>
 
 <?php include("common/footer.php"); ?>
