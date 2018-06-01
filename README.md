@@ -8,4 +8,4 @@ Product: http://web.engr.oregonstate.edu/~synytsan/cs340/Project/product.php?sel
 
 In case the styles are displayed outdated on your browser, erase cached browser history.
 
-On chrome it is defined at **Cached Images and Files**
+On chrome it is defined as **Cached Images and Files**
