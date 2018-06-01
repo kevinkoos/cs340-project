@@ -37,6 +37,9 @@
 ?>
 
     <main>
+    <fieldset>
+        <a href="http://web.engr.oregonstate.edu/~synytsan/cs340/Project/product.php?sel_product=3\">Our featured product is Pears!</a>
+    </fieldset>
     </main>
 
 <?php include("common/footer.php"); ?>

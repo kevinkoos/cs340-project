@@ -98,7 +98,7 @@ input[type="text"], input[type="password"], input[type="number"] {
     background-color: #FFF;
     color: #222;
     cursor: auto;
-    padding: 0.25em 0 0.25em 0.5em;
+    padding: 0.25em;
     margin: 0;
     outline: none;
     transition: all 0.25s ease-in-out;
@@ -279,7 +279,7 @@ label {
 
 .hlabel {
     text-align: right;
-    padding-right: 0.25em 1em;
+    padding: 0.25em 0.25em;
 }
 
 .review_box {
