@@ -41,9 +41,9 @@
             $cmd .= "<main><fieldset>";
             // Display product title
             $cmd .= "<h2>".$row[0]."</h2>";
-            $cmd .= "<table><tr style=\"vertical-align: top;\"><td>";
+            $cmd .= "<table><colgroup><col style=\"width:45%;\"><col style=\"width:55%;\"></colgroup><tr style=\"vertical-align: top;\"><td>";
             // Display product image
-            $cmd .= "<img src=\"".$row[4]."\" alt=\"".$row[0]."\" style=\"display: block; width:500px; padding-right: 10px;\"></img>";
+            $cmd .= "<img src=\"".$row[4]."\" alt=\"".$row[0]."\" style=\"width:100%; padding-right: 10px;\"></img>";
             $cmd .= "</td><td>";
             // Display product specs
             $cmd .= "<h3>Price</h3><p class=\"desc2 info\">$".$row[1]."</p>";
@@ -78,7 +78,7 @@
             $cmd .= "</div>";
             // Add an option to comment
             $cmd .= "<h3>Review</h3>";
-            $cmd .= "<div class=\"info\" style=\"width:500px;\">";
+            $cmd .= "<div class=\"info\">";
             $cmd .= "<form method=\"post\" id=\"login\" action=\"includes/add_review.php?prod_id=".$pid."\">";
             if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
                 $cmd .= "<textarea name=\"review\" id=\"review\" class=\"review_box\" wrap=\"hard\" rows=\"1\" cols=\"1\"></textarea>";

@@ -130,8 +130,8 @@
                 <td><input type="number" min=1 max=99999 class="optional" name="zip" id="zip" title="ZIP should be numeric"></td>
             </tr>
         </table>
-        <input class="button" type="submit" value="Sign Up" />
-        <input class="button" type="reset" value="Clear Form" />
+        <input class="button button_blue" type="submit" value="Sign Up" />
+        <input class="button button_blue" type="reset" value="Clear Form" />
     </fieldset>
 </form>
 </main>

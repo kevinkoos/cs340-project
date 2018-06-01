@@ -51,8 +51,8 @@
                 <td><input type="password" class="required" name="passw" id="passw"></td>
             </tr>
         </table>
-        <input class="button" type="submit" value="Login" />
-        <input class="button" type="reset" value="Clear Form" />
+        <input class="button button_blue" type="submit" value="Login" />
+        <input class="button button_blue" type="reset" value="Clear Form" />
     </fieldset>
 </form>
 </main>
