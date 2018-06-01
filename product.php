@@ -89,11 +89,12 @@
             }
             $cmd .= "</form>";
             $cmd .= "</div>";
+            $cmd .= "</td></tr></table>";
             // Display all product reviews
             $cmd .= "<h3>Comments</h3>";
             $cmd .= "<div class=\"info\">";
+            $cmd .= "";
             $cmd .= "</div>";
-            $cmd .= "</td></tr></table>";
             $cmd .= "</fieldset></main>";
             echo $cmd;
         }
