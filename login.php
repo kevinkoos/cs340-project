@@ -13,9 +13,10 @@
 <html>
 <head>
     <title>Log In</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=font1|font2|etc">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="Anton Synytsia">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="js/login_validator.js"></script>
 </head>
@@ -28,26 +29,30 @@
 ?>
 
 <form method="post" id="login" action="includes/authorize.php">
-    <?php
-    if (isset($_GET["retry"]) && $_GET['retry'] == true) {
-        echo "<p class=\"error\">There was an error in the login.<br />Either username or password was incorrect.<br />Please re-enter the correct login information.</p>";
-    }
-    ?>
     <fieldset>
-        <legend>Login:</legend>
-        <p>
-            <label for="uname">Username:</label>
-            <input type="text" class="required" name="uname" id="uname">
-        </p>
-        <p>
-            <label for="passw">Password:</label>
-            <input type="password" class="required" name="passw" id="passw">
-        </p>
+        <legend>Login</legend>
+        <?php
+        if (isset($_GET["retry"]) && $_GET['retry'] == true) {
+            echo "<p class=\"error\">There was an error in the login.<br />Either username or password was incorrect.<br />Please re-enter the correct login information.</p>";
+        }
+        ?>
+        <table>
+            <colgroup>
+                <col style="width:170px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tr>
+                <td><label for="uname">Username</label></td>
+                <td><input type="text" class="required" name="uname" id="uname"></td>
+            </tr>
+            <tr>
+                <td><label for="passw">Password</label></td>
+                <td><input type="password" class="required" name="passw" id="passw"></td>
+            </tr>
+        </table>
+        <input class="button" type="submit" value="Login" />
+        <input class="button" type="reset" value="Clear Form" />
     </fieldset>
-    <p>
-        <input type="submit" value="Login" />
-        <input type="reset" value="Clear Form" />
-    </p>
 </form>
 
 <?php include("common/footer.php"); ?>

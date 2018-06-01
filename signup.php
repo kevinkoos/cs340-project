@@ -13,9 +13,10 @@
 <html>
 <head>
     <title>Sign Up</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=font1|font2|etc">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="Anton Synytsia">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="js/signup_validator.js"></script>
 </head>
@@ -89,44 +90,48 @@
 
 <form method="post" id="signup">
     <fieldset>
-        <legend>Register:</legend>
-        <p>
-            <label for="uname">Username:</label>
-            <input type="text" class="required" name="uname" id="uname">
-        </p>
-        <p>
-            <label for="email">Email:</label>
-            <input type="text" class="required" name="email" id="email">
-        </p>
-        <p>
-            <label for="passw">Password:</label>
-            <input type="password" class="required" name="passw" id="passw">
-        </p>
-        <p>
-            <label for="confirm_passw">Confirm Password:</label>
-            <input type="password" class="required" name="confirm_passw" id="confirm_passw">
-        </p>
-        <p>
-            <label for="street">Street:</label>
-            <input type="text" class="required" name="street" id="street">
-        </p>
-        <p>
-            <label for="city">City:</label>
-            <input type="text" class="required" name="city" id="city">
-        </p>
-        <p>
-            <label for="state">State:</label>
-            <input type="text" class="required" name="state" id="state">
-        </p>
-        <p>
-            <label for="zip">ZIP:</label>
-            <input type="number" min=1 max=99999 class="optional" name="zip" id="zip" title="ZIP should be numeric">
-        </p>
+        <legend>Register</legend>
+        <table>
+            <colgroup>
+                <col style="width:170px;">
+                <col style="width:auto;">
+            </colgroup>
+            <tr>
+                <td><label for="uname">Username</label></td>
+                <td><input type="text" class="required" name="uname" id="uname"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" class="required" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="passw">Password</label></td>
+                <td><input type="password" class="required" name="passw" id="passw"></td>
+            </tr>
+            <tr>
+                <td><label for="confirm_passw">Confirm Password</label></td>
+                <td><input type="password" class="required" name="confirm_passw" id="confirm_passw"></td>
+            </tr>
+            <tr>
+                <td><label for="street">Street</label></td>
+                <td><input type="text" class="required" name="street" id="street"></td>
+            </tr>
+            <tr>
+                <td><label for="city">City</label></td>
+                <td><input type="text" class="required" name="city" id="city"></td>
+            </tr>
+            <tr>
+                <td><label for="state">State</label></td>
+                <td><input type="text" class="required" name="state" id="state"></td>
+            </tr>
+            <tr>
+                <td><label for="zip">ZIP</label></td>
+                <td><input type="number" min=1 max=99999 class="optional" name="zip" id="zip" title="ZIP should be numeric"></td>
+            </tr>
+        </table>
+        <input class="button" type="submit" value="Sign Up" />
+        <input class="button" type="reset" value="Clear Form" />
     </fieldset>
-    <p>
-        <input type="submit" value="Sign Up" />
-        <input type="reset" value="Clear Form" />
-    </p>
 </form>
 
 <?php include("common/footer.php"); ?>
