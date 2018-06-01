@@ -30,8 +30,8 @@
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
         or die("Could not connect: " . mysql_error());
 
-    if (isset($_GET["sel_product"])) {
-        $pid = (int)$_GET["sel_product"];
+    if (isset($_GET['sel_product'])) {
+        $pid = (int)$_GET['sel_product'];
         $query = "SELECT pName, pPrice, pQuantity, pDesc, pPhoto FROM ProjProducts WHERE pID=$pid;";
         $result = mysqli_query($conn, $query)
             or die("Query failed: " . mysql_error());
@@ -58,7 +58,7 @@
             // Add the Send to Cart button
             $cmd .= "<h3>Purchase</h3>";
             $cmd .= "<div class=\"info\">";
-            $cmd .= "<form method=\"post\" id=\"login\" action=\"includes/send_to_cart.php?prod_id=".$pid."\">";
+            $cmd .= "<form method=\"post\" id=\"purchase\" action=\"includes/send_to_cart.php?prod_id=".$pid."\">";
             if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
                 $cmd .= "<div>";
                 $cmd .= "<label for=\"quantity\">Quantity:</label>";
@@ -79,9 +79,11 @@
             // Add an option to comment
             $cmd .= "<h3>Review</h3>";
             $cmd .= "<div class=\"info\">";
-            $cmd .= "<form method=\"post\" id=\"login\" action=\"includes/add_review.php?prod_id=".$pid."\">";
+            $cmd .= "<form method=\"post\" id=\"review\" action=\"includes/add_review.php?prod_id=".$pid."\">";
             if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
-                $cmd .= "<textarea name=\"review\" id=\"review\" class=\"review_box\" wrap=\"hard\" rows=\"1\" cols=\"1\"></textarea>";
+                $cmd .= "<label for=\"rating\">Rating:</label>";
+                $cmd .= "<input type=\"number\" value=\"0\" min=0 max=10 class=\"optional\" name=\"rating\" id=\"rating\" title=\"Rating must be a number\">";
+                $cmd .= "<textarea name=\"comment\" id=\"comment\" class=\"review_box\" wrap=\"hard\" rows=\"1\" cols=\"1\"></textarea>";
                 $cmd .= "<input class=\"button button_red\" type=\"submit\" value=\"Review\" />";
             }
             else {
@@ -93,8 +95,19 @@
             // Display all product reviews
             $cmd .= "<h3>Comments</h3>";
             $cmd .= "<div class=\"info\">";
-            $cmd .= "";
+            $query2 = "SELECT uUserName, rComment, rRating FROM ProjReviews WHERE pID = $pid;";
+            $result2 = mysqli_query($conn, $query2)
+                or die("Query failed: " . mysql_error());
+            while ($row2 = mysqli_fetch_row($result2)) {
+                $cmd .= "<div>";
+                $cmd .= "<p class=\"desc4\">".$row2[2]."</p>";
+                $cmd .= "<p class=\"desc4\">".$row2[1]."</p>";
+                $cmd .= "<p class=\"desc4\" style=\"float: right;\"><i>-- ".$row2[0]."</i></p>";
+                $cmd .= "</div>";
+            }
             $cmd .= "</div>";
+            mysqli_free_result($result2);
+
             $cmd .= "</fieldset></main>";
             echo $cmd;
         }
