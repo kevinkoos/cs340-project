@@ -51,7 +51,7 @@
                   <img src=$row[3] width='200' height='200'> 
                 </div>
                 <div class = 'productInfo'>
-                  <p><a href='#'> $row[1]</a></p>
+                  <p><a href='http://web.engr.oregonstate.edu/~santacrm/cs340/cs340-project2/product.php?sel_product=$row[0]\'> $row[1]</a></p>
                   <p>$ $row[2]</p>
                 </div>
               </div>";
