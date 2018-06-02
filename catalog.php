@@ -1,50 +1,32 @@
-<!DOCTYPE html>
+<?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+    $currentpage = "Catalog";
+    include 'includes/pages.php';
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-  <head>
-
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
-    <link rel="stylesheet" href="index.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
-
-  </head>
+<head>
+    <title>Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="author" content="Anton Synytsia">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
   
   <body>  
 
-   
-    <nav class="nav-bar">
-      <h1 class="title">Catalog</h1>
-      <ul class="nav-bar-links">
-          <li class="nav-item"><a href="index.php">Home</a></li>
-          <li class="nav-item"><a href="catalog.html">Catalog</a></li>
-          <li class="nav-item"><a href="cart.html">Cart</a></li>
-          <li class="nav-item"><a href="wishlist.html">Wish List</a></li>
-
-          <li><a href="">Log In</a></li>
-          <li><a href="">Sign Up</a></li>
-          <li><a href="">Sign Out</a></li>
-      </ul>
-    </nav>
-    <main>
-      <div class = "mainContent">
-        <div class = "searchBar">
-            <input id = "searchBar" type='text'>
-        </div>
-        <div class = "searchButton">
-          <button id ="searchButton">Search</button>
-        </div>
-
-
-        <div class = "results">
-          
-
-        </div>
-      </div>
-
        <?php 
-      include 'connectvars.php';
+      include 'includes/connectvars.php';
+      include 'common/banner.php';
+      include 'common/mainmenu.php';
+
       $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
       if (!$conn) {
         die('Could not connect: ' . mysql_error());
@@ -80,6 +62,7 @@
     ?>
 
     </main>
+    <?php include("common/footer.php"); ?>
   </body>
 
   

@@ -1,12 +1,12 @@
-<<<<<<< HEAD:index.php
+
 <?php
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    //if (!isset($_SESSION)) {
+    //    session_start();
+    //}
     $currentpage = "Home";
     include 'includes/pages.php';
 ?>
@@ -52,13 +52,13 @@
               Morbi sit amet ex hendrerit, ullamcorper libero elementum, venenatis quam. Aenean tristique eleifend ligula a feugiat. Vestibulum convallis pellentesque erat, et feugiat lacus. Cras mollis vestibulum ipsum, vel elementum turpis tempor vitae. In ullamcorper dui ac nibh eleifend eleifend. Ut mauris risus, euismod id tortor eget, cursus ultricies elit. Nullam eget justo arcu. Vestibulum vel malesuada nunc. Donec ornare sapien leo, ac porta massa sodales vitae. Maecenas blandit turpis id feugiat congue. Morbi ac lectus vulputate, aliquet enim sit amet, convallis est. Aenean commodo metus vitae risus interdum feugiat. Duis ut vulputate ante. Cras facilisis magna eget eros auctor, in fringilla erat luctus.</p>
               
               <div class ="LeftPic">
-                <img src="leftpic.jpg" alt="Farmer" >
+                <img src="images/leftpic.jpg" alt="Farmer" >
               </div>
             </div>
           
             <div class = "RightSide">
             <div class ="RightPic">
-              <img src="rightpic.jpg" alt="Plant" >
+              <img src="images/rightpic.jpg" alt="Plant" >
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in magna vitae ipsum aliquet pharetra. Nullam pretium ultricies felis at ultrices. Nullam pretium congue quam sed ultricies. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam posuere sapien id egestas iaculis. Duis vehicula ut velit ut congue. Vestibulum vitae nisl commodo, efficitur massa in, aliquam tellus. Nam posuere, orci eget pretium blandit, eros lacus semper metus, id luctus mi risus sed risus. Proin lorem nunc, consectetur vel consequat vel, rutrum vitae ipsum. Mauris molestie, mi a maximus tempor, ex magna porttitor tortor, ac cursus dolor diam sed nunc. Aliquam elementum consectetur dapibus.
 
