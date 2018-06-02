@@ -30,11 +30,7 @@
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
         or die("Could not connect: " . mysql_error());
 
-    // ...
-
-
-
-        // executes if logged in
+    // executes if logged in
     if(isset($_SESSION['username'])){
         $uname = $_SESSION['username'];
 
@@ -42,7 +38,7 @@
             $query = "CALL emptyCart('$uname')";
             $result = mysqli_query($conn, $query) or die("Query failed: " . mysql_error());
             echo "<h1 class='empty_cart'>Checkout successful!</h1>";
-        } 
+        }
 
         $query = "SELECT * FROM UserCart WHERE uUsername ='$uname' ";
         $result = mysqli_query($conn, $query)
@@ -63,22 +59,24 @@
                         <td>Quantity: $row[4]</td><br>
                         <td>Total price: \$$row[5]</td><br>
                         <td><input type='submit' name='delete_$count' value='Delete item from cart' /></td><br>
-                        </div>";		
+                        </div>";
                 echo "</tr>";
                 $count ++;
                 $total = $total + $row[5];
             }
-            
+
             echo "Total: \$$total   <input id='checkout_button' type = 'submit' name='checkout_button'  value = 'Checkout' />";
             echo "</form>";
         }
+
+        mysqli_free_result($result);
     } else {
         echo "<h1>Sign up required to purchase our products!</h1>";
     }
 
 
     // Close connection
-mysqli_close($conn);
+    mysqli_close($conn);
 ?>
 
 <?php include("common/footer.php"); ?>

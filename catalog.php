@@ -19,52 +19,58 @@
     <meta name="author" content="Anton Synytsia">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
-  
-  <body>  
 
-       <?php 
-      include 'includes/connectvars.php';
-      include 'common/banner.php';
-      include 'common/mainmenu.php';
+<body>
+    <?php
+        include 'includes/connectvars.php';
+        include 'common/banner.php';
+        include 'common/mainmenu.php';
 
-      $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-      if (!$conn) {
-        die('Could not connect: ' . mysql_error());
-      }	
+        function url() {
+            return sprintf(
+                "%s://%s%s",
+                isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+                $_SERVER['SERVER_NAME'],
+                $_SERVER['REQUEST_URI']);
+        }
 
-      $query = "SELECT pID,PName,pPrice,pPhoto FROM ProjProducts ";
+        $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        if (!$conn) {
+            die('Could not connect: ' . mysql_error());
+        }
+
+        $query = "SELECT pID,PName,pPrice,pPhoto FROM ProjProducts ";
 
 
-      $result = mysqli_query($conn, $query);
-	    if (!$result) {
-		    die("Query to show fields from table failed");
-      }
-      
-      $fields_num = mysqli_num_fields($result);
+        $result = mysqli_query($conn, $query);
+        if (!$result) {
+            die("Query to show fields from table failed");
+        }
+
+        $fields_num = mysqli_num_fields($result);
         echo "<h1>Products</h1>";
-        
 
-      while($row = mysqli_fetch_row($result)) {	
-       
-        echo "<div class='productHolder'> 
-                <div class='imgHolder'> 
-                  <img src=$row[3] width='200' height='200'> 
+        $path = dirname(url());
+
+        while($row = mysqli_fetch_row($result)) {
+
+        echo "<div class='productHolder'>
+                <div class='imgHolder'>
+                  <img src=$row[3] width='200' height='200'>
                 </div>
                 <div class = 'productInfo'>
-                  <p><a href='http://web.engr.oregonstate.edu/~santacrm/cs340/cs340-project2/product.php?sel_product=$row[0]\'> $row[1]</a></p>
+                  <p><a href=\"$path/product.php?sel_product=$row[0]\">$row[1]</a></p>
                   <p>$ $row[2]</p>
                 </div>
               </div>";
-      }
-    
-      mysqli_free_result($result);
-      mysqli_close($conn);
+        }
+
+        mysqli_free_result($result);
+        mysqli_close($conn);
     ?>
 
     </main>
     <?php include("common/footer.php"); ?>
-  </body>
+</body>
 
-  
- 
 </html>
