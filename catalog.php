@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="author" content="Anton Synytsia">
+    <meta name="author" content="Mac">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
@@ -36,7 +36,7 @@
 
         $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
         if (!$conn) {
-            die('Could not connect: ' . mysql_error());
+            die('Could not connect: ' . mysqli_connect_error());
         }
 
         $query = "SELECT pID,PName,pPrice,pPhoto FROM ProjProducts ";
@@ -44,7 +44,7 @@
 
         $result = mysqli_query($conn, $query);
         if (!$result) {
-            die("Query to show fields from table failed");
+            die("Query to show fields from table failed" . mysqli_error($conn));
         }
 
         $fields_num = mysqli_num_fields($result);

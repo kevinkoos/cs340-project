@@ -17,7 +17,7 @@
 
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-        or die("Could not connect: " . mysql_error());
+        or die("Could not connect: " . mysqli_connect_error());
 
     // Escape user inputs for security
     $uname = clean_input(mysqli_real_escape_string($conn, $_POST['uname']));
@@ -27,7 +27,7 @@
     // Verify username
     $query = "SELECT uSalt, uPassword FROM ProjUsers WHERE uUsername='$uname'";
     $result = mysqli_query($conn, $query)
-        or die("Query failed: " . mysql_error());
+        or die("Query failed: " . mysqli_error($conn));
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_row($result);
@@ -56,7 +56,7 @@
         header("Location: ../index.php");
     }
     else {
-        header('Location: ../login.php?retry=true');
+        header("Location: ../login.php?retry=true&uname=$uname");
     }
     exit();
 ?>

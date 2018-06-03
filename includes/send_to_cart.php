@@ -17,7 +17,7 @@
 
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-        or die("Could not connect: " . mysql_error());
+        or die("Could not connect: " . mysqli_connect_error());
 
     if (isset($_SESSION['username']) && $_SESSION['username'] != "" && isset($_GET['prod_id']) && isset($_POST['quantity'])) {
         // Escape user inputs for security
@@ -27,19 +27,23 @@
 
         if (isset($_POST['send_to_cart'])) {
             $query = "DELETE FROM ProjCart WHERE pID = $prod_id AND uUsername = \"$user\";";
-            mysqli_query($conn, $query) or die("Query failed1: " . mysql_error());
+            mysqli_query($conn, $query)
+                or die("Query failed: " . mysqli_error($conn));
 
             $query = "INSERT INTO ProjCart (pID, uUsername, cCount) VALUES ($prod_id, \"$user\", $quantity);";
-            mysqli_query($conn, $query) or die("Query failed2: " . mysql_error());
+            mysqli_query($conn, $query)
+                or die("Query failed: " . mysqli_error($conn));
 
             $carted = true;
         }
         else {
             $query = "DELETE FROM ProjWishlist WHERE pID = $prod_id AND uUsername = \"$user\";";
-            mysqli_query($conn, $query) or die("Query failed3: " . mysql_error());
+            mysqli_query($conn, $query)
+                or die("Query failed: " . mysqli_error($conn));
 
             $query = "INSERT INTO ProjWishlist (pID, uUsername) VALUES ($prod_id, \"$user\");";
-            mysqli_query($conn, $query) or die("Query failed4: " . mysql_error());
+            mysqli_query($conn, $query)
+                or die("Query failed: " . mysqli_error($conn));
 
             $carted = false;
         }

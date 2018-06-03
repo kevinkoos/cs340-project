@@ -17,7 +17,7 @@
 
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
-        or die("Could not connect: " . mysql_error());
+        or die("Could not connect: " . mysqli_connect_error());
 
     if (isset($_SESSION['username']) && $_SESSION['username'] != "" && isset($_GET['prod_id']) && isset($_POST['comment']) && isset($_POST['rating'])) {
         // Escape user inputs for security
@@ -27,10 +27,12 @@
         $rating = clean_input($_POST['rating']);
 
         $query = "DELETE FROM ProjReviews WHERE pID = $prod_id AND uUsername = \"$user\";";
-        mysqli_query($conn, $query) or die("Query failed: " . mysql_error());
+        mysqli_query($conn, $query)
+            or die("Query failed: " . mysqli_error($conn));
 
         $query = "INSERT INTO ProjReviews (pID, uUsername, rRating, rComment) VALUES ($prod_id, \"$user\", $rating, \"$comment\");";
-        mysqli_query($conn, $query) or die("Query failed: " . mysql_error());
+        mysqli_query($conn, $query)
+            or die("Query failed: " . mysqli_error($conn));
     }
 
     // Close connection
