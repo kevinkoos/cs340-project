@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="author" content="Anton Synytsia">
+    <meta name="author" content="Anton">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script type="text/javascript" src="js/login_validator.js"></script>
 </head>
@@ -34,7 +34,7 @@
         <legend>Login</legend>
         <?php
         if (isset($_GET["retry"]) && $_GET['retry'] == true) {
-            echo "<p class=\"error\">There was an error in the login.<br />Either username or password was incorrect.<br />Please re-enter the correct login information.</p>";
+            echo "<p class=\"error\">Incorrect username or password! Please try again or sign up.</p>";
         }
         ?>
         <table>
@@ -44,7 +44,7 @@
             </colgroup>
             <tr>
                 <td class="hlabel"><label for="uname">Username</label></td>
-                <td><input type="text" class="required" name="uname" id="uname"></td>
+                <td><input type="text" class="required" name="uname" id="uname" value="<?php if (isset($_GET['uname'])) { echo $_GET['uname']; } ?>"></td>
             </tr>
             <tr>
                 <td class="hlabel"><label for="passw">Password</label></td>
