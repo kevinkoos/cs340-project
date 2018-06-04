@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
 
     if (!isset($_SESSION)) {
+        session_name("kooskeproj340");
         session_start();
     }
     $currentpage = "Cart";
@@ -72,7 +73,7 @@
                         <td class='cartiPrice'>Individual price: \$$row[2]</td><br>
                         <td class='cartQuantity'>Quantity: $row[4]</td><br>
                         <td class='carttPrice'>Total price: \$$row[5]</td><br>
-                        <td><input class='cartDelete' type='submit' name='delete_$count' value='Delete item from cart' /></td><br>
+                        <td><input class='cartDelete' type='submit' name='delete_$count' value='Delete item from cart'/></td><br>
                         </div>";
                 echo "</tr>";
                 $count ++;

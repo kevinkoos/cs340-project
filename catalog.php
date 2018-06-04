@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
 
     if (!isset($_SESSION)) {
+        session_name("kooskeproj340");
         session_start();
     }
     $currentpage = "Catalog";
@@ -56,7 +57,7 @@
 
         while($row = mysqli_fetch_row($result)) {
 
-        echo "<a href=\"$path/product.php?sel_product=$row[0]\"><div class='productHolder'>
+        echo "<a class='productLink' href=\"$path/product.php?sel_product=$row[0]\"><div class='productHolder'>
                 <div class='imgHolder'>
                   <img class='productImage' src=$row[3] width='200' height='200'>
                 </div>
