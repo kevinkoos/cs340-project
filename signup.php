@@ -24,7 +24,6 @@
 <body>
 <?php
     include 'includes/connectvars.php';
-    include 'common/banner.php';
     include 'common/mainmenu.php';
 
     function clean_input($data) {
@@ -148,6 +147,7 @@
 </main>
 
 <?php include("common/footer.php"); ?>
+</main>
 
 </body>
 </html>

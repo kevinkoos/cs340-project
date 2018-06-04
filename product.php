@@ -23,7 +23,6 @@
 <body>
 <?php
     include 'includes/connectvars.php';
-    include 'common/banner.php';
     include 'common/mainmenu.php';
 
     // Establish connection
@@ -123,8 +122,10 @@
     // Close connection
     mysqli_close($conn);
 ?>
+    <main>
 
-<?php include("common/footer.php"); ?>
+    <?php include("common/footer.php"); ?>
+    </main>
 
 </body>
 </html>

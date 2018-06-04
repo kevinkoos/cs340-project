@@ -23,7 +23,6 @@
 <body>
 <?php
     include 'includes/connectvars.php';
-    include 'common/banner.php';
     include 'common/mainmenu.php';
 
     // Establish connection
@@ -74,9 +73,9 @@
     <fieldset>
         <a href="http://web.engr.oregonstate.edu/~synytsan/cs340/Project/product.php?sel_product=3\">Our featured product is Pears!</a>
     </fieldset>
+    <?php include("common/footer.php"); ?>
     </main>
 
-<?php include("common/footer.php"); ?>
 
 </body>
 </html>
