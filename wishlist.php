@@ -45,7 +45,7 @@
         } else {
             $username = "";
         }
-        $query = "SELECT P.pName, P.pPrice, P.pPhoto
+        $query = "SELECT P.pName, P.pPrice, P.pPhoto, P.pID
                   FROM ProjProducts P, ProjWishlist W
                   WHERE W.uUsername = '$username' AND P.pID = W.pID";
         $result = mysqli_query($conn, $query)
@@ -64,7 +64,7 @@
             while($row = mysqli_fetch_row($result)) {
                 echo "<tr><div class='productHolder wishHolder'>";
                 echo "<td><img class='productImage' src=\"$row[2]\" alt=\"$row[0]\" style=\"display: inline-block; width:110px; height:110px;\"></td>
-                      <div class='wishInfo'><td><a href=\"$path/product.php?sel_product=$row[0]\" class='productName'>$row[0]</a></td><br>
+                      <div class='wishInfo'><td><a href=\"$path/product.php?sel_product=$row[3]\" class='productName'>$row[0]</a></td><br>
                       <td>Individual price: $$row[1]</td><br>
                       <td> Amount needed:
                       <input type=\"number\" min='0' name=\"quantities[]\"></td></div><br>";
