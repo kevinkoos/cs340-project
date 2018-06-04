@@ -144,7 +144,6 @@
         <input class="button button_blue" type="reset" value="Clear Form" />
     </fieldset>
 </form>
-</main>
 
 <?php include("common/footer.php"); ?>
 </main>
