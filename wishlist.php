@@ -31,15 +31,21 @@
         // Establish connection
         $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
             or die("Could not connect: " . mysqli_connect_error());
-
-        $username = $_SESSION['username'];
+        if (isset($_SESSION['username']) && $_SESSION['username'] != "") {
+            $username = $_SESSION['username'];
+        } else {
+            $username = "";
+        }
         $query = "SELECT P.pName, P.pPrice, P.pPhoto
                   FROM ProjProducts P, ProjWishlist W
                   WHERE W.uUsername = '$username' AND P.pID = W.pID";
         $result = mysqli_query($conn, $query)
             or die("Query failed: " . mysqli_error($conn));
         if (mysqli_num_rows($result) == 0) {
-            echo "<p class='empty_wishlist'>No items in your wishlist!</p>";
+            echo "<h2 class='empty_wishlist'>No items in your wishlist!</h2><br>";
+            if ($username == "") {
+                echo "<h2 class='empty_wishlist'>Log-in to add to your wishlist.</h2><br>";
+            }
         } else {
             $array = array_fill(0, mysqli_num_rows($result), 1);
 
