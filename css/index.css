@@ -15,19 +15,7 @@ html, body {
 }
 
 body {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -ms-high-contrast-adjust: none;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cdeb8b+0,cdeb8b+100;Green+Flat+%235 */
-    background: #cdeb8b; /* Old browsers */
-    background: -moz-linear-gradient(top, #cdeb8b 0%, #cdeb8b 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #cdeb8b 0%,#cdeb8b 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #cdeb8b 0%,#cdeb8b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8b', endColorstr='#cdeb8b',GradientType=0 ); /* IE6-9 */
+        background: url('/images/background.jpg') no-repeat scroll left center;
 }
 
 main {
@@ -207,7 +195,7 @@ ul {
     right: 0;
     bottom: 0;
     top: 0;
-    width: 790px;
+    width: 100%;
     padding: 0;
 }
 
@@ -348,4 +336,38 @@ img {
 .searchButton{
     margin-left: auto;
     margin-right: auto;
+}
+
+#icon-li {
+    padding: 0px;
+    width: 180px;
+    height: 70px;
+}
+
+#icon-lk {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+#icon-lk:hover {
+    background-color: lightgreen;
+}
+
+#title {
+    display: inline-block;
+    padding: 25px;
+    width: 110px;
+    height: 100%;
+    margin: 0;
+    line-height: 100%;
+}
+
+#icon-img {
+    width: 65px;
+    height: 65px;
+    margin: 0;
+    padding: 2.5px;
 }

@@ -1,6 +1,5 @@
 <?php
     $content = array(
-       "Home"       => ["index.php", 0],
        "Catalog"    => ["catalog.php", 0],
        "Cart"       => ["cart.php", 0],
        "Wishlist"   => ["wishlist.php", 0],

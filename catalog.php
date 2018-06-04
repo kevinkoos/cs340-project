@@ -23,7 +23,6 @@
 <body>
     <?php
         include 'includes/connectvars.php';
-        include 'common/banner.php';
         include 'common/mainmenu.php';
 
         function url() {
@@ -69,8 +68,9 @@
         mysqli_close($conn);
     ?>
 
-    </main>
     <?php include("common/footer.php"); ?>
+
+    </main>
 </body>
 
 </html>

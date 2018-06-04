@@ -24,7 +24,6 @@
 <body>
 <?php
     include 'includes/connectvars.php';
-    include 'common/banner.php';
     include 'common/mainmenu.php';
 ?>
 
@@ -55,9 +54,9 @@
         <input class="button button_blue" type="reset" value="Clear Form" />
     </fieldset>
 </form>
+<?php include("common/footer.php"); ?>
 </main>
 
-<?php include("common/footer.php"); ?>
 
 </body>
 </html>
