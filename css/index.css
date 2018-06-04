@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-        background: url('/images/background.jpg') no-repeat scroll left center;
+        background: url('../images/background.jpg') no-repeat scroll left center;
 }
 
 main {
