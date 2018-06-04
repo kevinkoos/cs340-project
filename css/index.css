@@ -479,3 +479,6 @@ img {
     background-color: rgb(113, 253, 122);
 }
 
+.required:focus {
+    background-color: #F9FF8A;
+}
