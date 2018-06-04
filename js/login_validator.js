@@ -69,11 +69,11 @@ window.onload = function() {
     var myForm = document.getElementById("login");
 
     var requiredInputs = document.querySelectorAll(".required");
-    for (var i = 0; i < requiredInputs.length; i++) {
-        requiredInputs[i].onfocus = function() {
-            this.style.backgroundColor = "#F9FF8A";
-        }
-    }
+    // for (var i = 0; i < requiredInputs.length; i++) {
+    //     requiredInputs[i].onfocus = function() {
+    //         this.style.backgroundColor = "#F9FF8A";
+    //     }
+    // }
 
     myForm.onsubmit = function(e) {
         var requiredInputs = document.querySelectorAll(".required");
