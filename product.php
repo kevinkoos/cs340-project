@@ -4,7 +4,6 @@
     error_reporting(E_ALL);
 
     if (!isset($_SESSION)) {
-        session_name("kooskeproj340");
         session_start();
     }
     $currentpage = "Catalog";
