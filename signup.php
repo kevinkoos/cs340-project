@@ -4,7 +4,7 @@
     error_reporting(E_ALL);
 
     if (!isset($_SESSION)) {
-        session_name("kooskeproj340");
+        session_name("proj340".substr($_SERVER['REQUEST_URI'], 2, 8));
         session_start();
     }
     $currentpage = "Sign Up";
