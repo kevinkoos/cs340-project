@@ -60,14 +60,14 @@
 
             $path = dirname(url());
 
-            echo "<form class='wishForm' method=\"post\" action=\"collect_vals.php\">";
+            echo "<form class='wishForm' method=\"get\" action=\"moveToCart.php\">";
             while($row = mysqli_fetch_row($result)) {
                 echo "<tr><div class='productHolder wishHolder'>";
                 echo "<td><img class='productImage' src=\"$row[2]\" alt=\"$row[0]\" style=\"display: inline-block; width:110px; height:110px;\"></td>
                       <div class='wishInfo'><td><a href=\"$path/product.php?sel_product=$row[3]\" class='productName'>$row[0]</a></td><br>
                       <td>Individual price: $$row[1]</td><br>
                       <td> Amount needed:
-                      <input type=\"number\" min='0' name=\"quantities[]\"></td></div><br>";
+                      <input type=\"number\" min='0' value='0' name=\"quantities[]\"></td></div><br>";
                 echo "</div></tr><br>";
             }
             echo "<input class='moveToCart' type = \"submit\"  value = \"Move wishlist to cart\" />";

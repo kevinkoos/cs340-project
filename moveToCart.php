@@ -20,15 +20,15 @@ if(isset($_GET['quantities'])) {
         or die("Query failed: " . mysqli_error($conn));
     if (mysqli_num_rows($result) != 0) {
         $num = count($_GET['quantities']);
-        echo "Count: $num ";
+        //echo "Count: $num ";
         for($i = 0; $i < $num; $i ++) {
             $row=mysqli_fetch_row($result);
-            echo "pid: $row[0] ";
+            //echo "pid: $row[0] ";
             $quant = $_GET['quantities'][$i];
-            echo "quant: $quant ";
+            //echo "quant: $quant ";
             if ($quant != 0) {
-                $fnm = "CALL WishItemToCart('$uname', '$row[0]', '$quant')";
-                echo "$fnm\n";
+                $fnm = "CALL WishItemToCart('$row[0]','$uname', '$quant')";
+                //echo "$fnm\n";
                 $result = mysqli_query($conn, $fnm)
                     or die("Query failed: " . mysqli_error($conn));
             }
