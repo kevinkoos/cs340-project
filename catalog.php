@@ -24,7 +24,10 @@
     <?php
         include 'includes/connectvars.php';
         include 'common/mainmenu.php';
+    ?>
 
+    <main>
+    <?php
         function url() {
             return sprintf(
                 "%s://%s%s",
@@ -53,15 +56,15 @@
 
         while($row = mysqli_fetch_row($result)) {
 
-        echo "<div class='productHolder'>
+        echo "<a href=\"$path/product.php?sel_product=$row[0]\"><div class='productHolder'>
                 <div class='imgHolder'>
-                  <img src=$row[3] width='200' height='200'>
+                  <img class='productImage' src=$row[3] width='200' height='200'>
                 </div>
                 <div class = 'productInfo'>
-                  <p><a href=\"$path/product.php?sel_product=$row[0]\">$row[1]</a></p>
-                  <p>$ $row[2]</p>
+                  <p class='productName'>$row[1]</p><br><br>
+                  <p class='productPrice'>$ $row[2]</p>
                 </div>
-              </div>";
+              </div></a>";
         }
 
         mysqli_free_result($result);

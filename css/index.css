@@ -15,11 +15,18 @@ html, body {
 }
 
 body {
-        background: url('/images/background.jpg') no-repeat scroll left center;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
 
 main {
-    padding: 12px;
+    padding: 15px;
+    margin: 30px 40px 30px 40px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #0A0A0A;
+    background-color: rgba(196, 196, 196, 0.592);
 }
 
 .info {
@@ -30,14 +37,16 @@ h1 {
     color: #333;
     display: block;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 h2 {
-    color: #aaa;
+    color: rgb(12, 12, 12);
     display: block;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 h3 {
@@ -212,10 +221,6 @@ a {
     color: black;
 }
 
-a:hover {
-    color: lightskyblue;
-}
-
 li a {
     padding: 25px;
     margin: 0;
@@ -237,7 +242,7 @@ fieldset {
     border-radius: 6px;
     border: 1px solid #525252;
     padding: 12px;
-    background-color: #FFF;
+    background-color: rgba(250, 250, 250, 0.8);
 }
 
 fieldset legend {
@@ -370,4 +375,106 @@ img {
     height: 65px;
     margin: 0;
     padding: 2.5px;
+}
+
+.prod-container {
+    justify-content: center;
+}
+
+.productHolder {
+    display: inline-block;
+    width: 420px;
+    height: 300px;
+    margin: 0;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: rgba(164, 164, 164, 0.728);
+}
+
+.productImage {
+    display: inline-block;
+    max-height: 240px;
+    float: left;
+}
+
+.productName {
+    float: right;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.productPrice {
+    float: right;
+}
+
+.productInfo {
+    float: right;
+
+}
+
+.cartItem {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(216, 216, 216);
+    margin: 6px;
+}
+
+.cartDelete {
+    border: 1px solid rgb(122, 122, 122);
+    border-radius: 5px;
+    padding: 3.5px;
+    margin: 3px 0px 0px 0px;
+}
+
+.cartDelete:hover {
+    background-color: rgb(253, 113, 113);
+}
+
+.cartName {
+    font-weight: bold;
+}
+.cartName:hover {
+    color: rgb(109, 218, 255);
+}
+
+.wishHolder {
+    height: 150px;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.wishForm {
+    width: 100%;
+}
+
+.moveToCart {
+    border: 1px solid rgb(122, 122, 122);
+    border-radius: 5px;
+    padding: 3.5px;
+    margin: 3px 0px 0px 0px;  
+}
+
+.moveToCart:hover {
+    background-color: rgb(113, 253, 122);
+}
+
+.wishInfo {
+    float: right;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#checkout_button {
+    border: 1px solid rgb(122, 122, 122);
+    border-radius: 5px;
+    padding: 3.5px;
+    margin: 3px 0px 0px 0px;
+}
+
+#checkout_button:hover {
+    background-color: rgb(113, 253, 122);
 }

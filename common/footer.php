@@ -1,2 +1,3 @@
-<div style="padding: 0.5em 1em 0 0; bottom: 0px; right: 0px; position: relative"><p class="credit">Shrubs &copy 2018, CS340 Group 29</p><br>
+<div style="padding: 0.5em 1em 0 0; bottom: 0px; right: 0px; position: relative"><p class="credit">Shrubs &copy 2018, CS340 Group 29</p>
+<div style="padding: 0.5em 1em 0 0; bottom: 0px; right: 0px; position: relative"><p class="credit">Photo by Markus Spiske freeforcommercialuse.net from Pexels</p>
 <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Tree">Tree</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></div>
