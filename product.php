@@ -21,14 +21,17 @@
 </head>
 
 <body>
+
 <?php
     include 'includes/connectvars.php';
     include 'common/mainmenu.php';
-
+?>
+<main>
+<?php
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
         or die("Could not connect: " . mysqli_connect_error());
-
+    
     if (isset($_GET['sel_product'])) {
         $pid = (int)$_GET['sel_product'];
         $query = "SELECT pName, pPrice, pQuantity, pDesc, pPhoto FROM ProjProducts WHERE pID=$pid;";
@@ -37,7 +40,7 @@
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_row($result);
             $cmd = "";
-            $cmd .= "<main><fieldset>";
+            $cmd .= "<fieldset>";
             // Display product title
             $cmd .= "<h2>".$row[0]."</h2>";
             $cmd .= "<table><colgroup><col style=\"width:45%;\"><col style=\"width:55%;\"></colgroup><tr style=\"vertical-align: top;\"><td>";
@@ -112,7 +115,7 @@
             $cmd .= "</div>";
             mysqli_free_result($result2);
 
-            $cmd .= "</fieldset></main>";
+            $cmd .= "</fieldset>";
             echo $cmd;
         }
         // Free result
@@ -122,7 +125,7 @@
     // Close connection
     mysqli_close($conn);
 ?>
-    <main>
+
 
     <?php include("common/footer.php"); ?>
     </main>

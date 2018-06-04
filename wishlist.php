@@ -32,9 +32,10 @@
         $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
             or die("Could not connect: " . mysqli_connect_error());
 
+        $username = $_SESSION['username'];
         $query = "SELECT P.pName, P.pPrice, P.pPhoto
                   FROM ProjProducts P, ProjWishlist W
-                  WHERE W.uUsername = user AND P.pID = W.pID";
+                  WHERE W.uUsername = '$username' AND P.pID = W.pID";
         $result = mysqli_query($conn, $query)
             or die("Query failed: " . mysqli_error($conn));
         if (mysqli_num_rows($result) == 0) {
@@ -42,17 +43,17 @@
         } else {
             $array = array_fill(0, mysqli_num_rows($result), 1);
 
-            echo "<form method=\"post\" action=\"collect_vals.php\">";
+            echo "<form class='wishForm' method=\"post\" action=\"collect_vals.php\">";
             while($row = mysqli_fetch_row($result)) {
-                echo "<tr>";
-                echo "<td><img src=\"$row[2]\" alt=\"$row[0]\" style=\"display: inline-block; width:64px; height:64px;\"></td>
-                      <td>$row[0]</td>
-                      <td>Individual price: $$row[1]</td>
+                echo "<tr><div class='productHolder wishHolder'>";
+                echo "<td><img class='productImage' src=\"$row[2]\" alt=\"$row[0]\" style=\"display: inline-block; width:110px; height:110px;\"></td>
+                      <div class='wishInfo'><td><a href='product.php?sel_product=$row[0]' class='productName'>$row[0]</a></td><br>
+                      <td>Individual price: $$row[1]</td><br>
                       <td> Amount needed:
-                      <input type=\"number\" name=\"quantities[]\"></td>";
-                echo "</tr>\n";
+                      <input type=\"number\" min='0' name=\"quantities[]\"></td></div><br>";
+                echo "</div></tr><br>";
             }
-            echo "<input type = \"submit\"  value = \"Move wishlist to cart\" />";
+            echo "<input class='moveToCart' type = \"submit\"  value = \"Move wishlist to cart\" />";
             echo "</form>";
         }
 
