@@ -36,6 +36,9 @@
 ?>
 
     <main>
+    <fieldset>
+        <a href="product.php?sel_product=3\">Our featured product is Pears!</a>
+    </fieldset>
     <div class = "MainBody">
 
           <div class = "LeftSide">
@@ -69,10 +72,6 @@
               Morbi sit amet ex hendrerit, ullamcorper libero elementum, venenatis quam. Aenean tristique eleifend ligula a feugiat. Vestibulum convallis pellentesque erat, et feugiat lacus. Cras mollis vestibulum ipsum, vel elementum turpis tempor vitae. In ullamcorper dui ac nibh eleifend eleifend. Ut mauris risus, euismod id tortor eget, cursus ultricies elit. Nullam eget justo arcu. Vestibulum vel malesuada nunc. Donec ornare sapien leo, ac porta massa sodales vitae. Maecenas blandit turpis id feugiat congue. Morbi ac lectus vulputate, aliquet enim sit amet, convallis est. Aenean commodo metus vitae risus interdum feugiat. Duis ut vulputate ante. Cras facilisis magna eget eros auctor, in fringilla erat luctus.</p>
           </div>
         </div>
-
-    <fieldset>
-        <a href="http://web.engr.oregonstate.edu/~synytsan/cs340/Project/product.php?sel_product=3\">Our featured product is Pears!</a>
-    </fieldset>
     <?php include("common/footer.php"); ?>
     </main>
 
