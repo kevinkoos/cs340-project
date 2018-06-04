@@ -4,11 +4,13 @@
     error_reporting(E_ALL);
 
     if (!isset($_SESSION)) {
+        session_name("kooskeproj340");
         session_start();
     }
     $currentpage = "Home";
     include 'includes/pages.php';
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -63,7 +65,7 @@
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in magna vitae ipsum aliquet pharetra. Nullam pretium ultricies felis at ultrices. Nullam pretium congue quam sed ultricies. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam posuere sapien id egestas iaculis. Duis vehicula ut velit ut congue. Vestibulum vitae nisl commodo, efficitur massa in, aliquam tellus. Nam posuere, orci eget pretium blandit, eros lacus semper metus, id luctus mi risus sed risus. Proin lorem nunc, consectetur vel consequat vel, rutrum vitae ipsum. Mauris molestie, mi a maximus tempor, ex magna porttitor tortor, ac cursus dolor diam sed nunc. Aliquam elementum consectetur dapibus.
 
-              Suspendisse venenatis magna augue, quis porta lacus lobortis vulputate. Aliquam eu ligula sit amet massa elementum luctus ut in nisi. Integer consectetur justo ultricies neque tincidunt rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In tempor facilisis nibh, sit amet pretium enim maximus in. Nunc fermentum sagittis sagittis. Etiam non congue sapien. Nulla in sem commodo, volutpat sapien varius, posuere dui. Quisque eget egestas libero. Vestibulum dolor turpis, porta sed tempus vel, tincidunt at libero. Sed libero orci, luctus eget hendrerit nec, rhoncus id sapien. Aliquam ac erat et sapien semper vehicula. Fusce quis odio elit. Duis id tincidunt arcu. Ut euismod accumsan velit eget pharetra. Fusce purus metus, blandit sit amet libero non, malesuada finibus tortor.
+              Suspendisse venenatis magna augue, quis porta lacus lobortis vulputate. Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
 
               Morbi semper ornare fermentum. In hac habitasse platea dictumst. Praesent pretium vulputate dolor, eu fermentum risus ornare vitae. Phasellus semper nisi nibh, nec porta massa tincidunt in. Suspendisse maximus nulla elit, ac finibus orci rutrum eu. Sed laoreet felis id efficitur pretium. Cras ultricies libero sed magna fringilla, at gravida elit fermentum. Nunc varius, nisi nec sodales lobortis, enim dolor laoreet ligula, et tristique quam enim non diam.
 

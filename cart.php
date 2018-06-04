@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
 
     if (!isset($_SESSION)) {
+        session_name("kooskeproj340");
         session_start();
     }
     $currentpage = "Cart";
@@ -29,6 +30,14 @@
 
 <main>
 <?php
+    function url() {
+        return sprintf(
+            "%s://%s%s",
+            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+            $_SERVER['SERVER_NAME'],
+            $_SERVER['REQUEST_URI']);
+    }
+
     // Establish connection
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME)
         or die("Could not connect: " . mysqli_connect_error());
@@ -44,9 +53,11 @@
             echo "<h1 class='empty_cart'>Checkout successful!</h1>";
         }
 
-        $query = "SELECT * FROM UserCart WHERE uUsername ='$uname' ";
+        $query = "SELECT * FROM UserCart WHERE uUsername ='$uname';";
         $result = mysqli_query($conn, $query)
             or die("Query failed: " . mysqli_error($conn));
+
+        $path = dirname(url());
 
         if (mysqli_num_rows($result) == 0) {
             echo "<h1 class='empty_cart'>No items in your cart!</h1>";
@@ -58,11 +69,11 @@
                 echo "<tr>";
                 echo "<div class='cartItem' style='width:100%; height:120px;'>
                         <td><img class='cartImage' src='$row[3]' alt='$row[1]' style='display: inline-block; float:left; width:100px; height:100px; margin-right: 10px;'></td>
-                        <td><a class='cartName' href='product.php?sel_product=$row[5]'>$row[1]</a></td><br>
+                        <td><a class='cartName' href=\"$path/product.php?sel_product=$row[6]\">$row[1]</a></td><br>
                         <td class='cartiPrice'>Individual price: \$$row[2]</td><br>
                         <td class='cartQuantity'>Quantity: $row[4]</td><br>
                         <td class='carttPrice'>Total price: \$$row[5]</td><br>
-                        <td><input class='cartDelete' type='submit' name='delete_$count' value='Delete item from cart' /></td><br>
+                        <td><input class='cartDelete' type='submit' name='delete_$count' value='Delete item from cart'/></td><br>
                         </div>";
                 echo "</tr>";
                 $count ++;
